@@ -3,14 +3,15 @@ project(c_simple_games C)
 
 set(CMAKE_C_STANDARD 11)
 
-# allow variable length array
-target_compile_options(c_simple_games PRIVATE -fpermissive-vla)
-
-add_executable(c_simple_games main.c
+add_executable(c_simple_games
+        main.c
         src/csg_inc.h
         src/csg.h
         src/csg_inc.c
         src/csg_type_racer.c
         src/csg_type_racer.h
         src/csg_game.c
-        src/csg_game.h)
+        src/csg_game.h
+)
+
+target_compile_options(c_simple_games PRIVATE -fpermissive-vla)
