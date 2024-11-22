@@ -1,6 +1,6 @@
 #include "csg_type_racer.h"
 
-static void print_words(const int count_word, char words[50][50], int cek_benar[count_word][50], int current_word, int current_letter) {
+static void print_words(int count_word, char words[50][50], int cek_benar[][50], int current_word, int current_letter) {
     for (int i = 0; i < count_word; i++) {
         const int len = strlen(words[i]);
         for (int j = 0; j < len; j++) {
@@ -30,13 +30,12 @@ csg_game_result csg_type_racer_start(void) {
     clear();
 
     char words[100][50];
-    int count_word = 25;
+    const int count_word = 25;
     int total_chars = 0;
 
     generate_sentences(count_word, words);
 
-    int cek_benar[count_word][50];
-    memset(cek_benar, NOT_TYPED, sizeof(cek_benar));
+    int cek_benar[count_word][50] = {0};
 
     printf("Type the following sentence as fast as you can:\n\n");
     for (int i = 0; i < count_word; i++) {
