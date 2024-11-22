@@ -35,7 +35,8 @@ csg_game_result csg_type_racer_start(void) {
 
     generate_sentences(count_word, words);
 
-    int cek_benar[count_word][50] = {0};
+    int cek_benar[count_word][50];
+    memset(cek_benar, NOT_TYPED, sizeof(cek_benar));
 
     printf("Type the following sentence as fast as you can:\n\n");
     for (int i = 0; i < count_word; i++) {
