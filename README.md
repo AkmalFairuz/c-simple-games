@@ -1,8 +1,8 @@
-# c-terminal-games
+# c-simple-games
 
 A collection of simple terminal games written in C. College project for the Algorithm and Programming course.
 
-Executable files can be found in the [releases](https://github.com/AkmalFairuz/c-terminal-games/releases) page.
+Executable files can be found in the [releases](https://github.com/AkmalFairuz/c-simple-games/releases) page.
 
 ## TODO
 - [x] Type Racer
