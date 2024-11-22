@@ -1,0 +1,77 @@
+name: CMake on multiple platforms
+
+on:
+  push:
+    branches: [ "master", "testing" ]
+    tags:
+      - "v*"
+  pull_request:
+    branches: [ "master", "testing" ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest]
+        build_type: [Release]
+        c_compiler: [gcc, clang, cl]
+        include:
+          - os: windows-latest
+            c_compiler: gcc
+            cpp_compiler: cl
+        exclude:
+          - os: windows-latest
+            c_compiler: cl
+          - os: windows-latest
+            c_compiler: clang
+          - os: ubuntu-latest
+            c_compiler: cl
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set reusable strings
+        id: strings
+        shell: bash
+        run: |
+          echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
+
+      - name: Install Ninja
+        run: |
+          choco install ninja  # Install Ninja using Chocolatey (Windows package manager)
+
+      - name: Configure CMake
+        run: >
+          cmake -B ${{ steps.strings.outputs.build-output-dir }}
+          -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
+          -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
+          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+          -G Ninja
+          -S ${{ github.workspace }}
+
+      - name: Build
+        run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
+
+      - name: Test
+        working-directory: ${{ steps.strings.outputs.build-output-dir }}
+        run: ctest --build-config ${{ matrix.build_type }}
+
+      - name: Upload Built Executable
+        if: success()
+        uses: actions/upload-artifact@v3
+        with:
+          name: c-simple-games
+          path: ${{ steps.strings.outputs.build-output-dir }}\c_simple_games.exe
+
+      - name: Publish Release
+        if: startsWith(github.ref, 'refs/tags/v') && success()
+        uses: ncipollo/release-action@v1.14.0
+        with:
+          artifacts: ${{ steps.strings.outputs.build-output-dir }}\c_simple_games.exe
+          allowUpdates: true
+          body: "Built by: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
