@@ -63,7 +63,7 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v3
         with:
-          name: built-executable
+          name: c-simple-games
           path: ${{ steps.strings.outputs.build-output-dir }}/c_simple_games.exe
 
       - name: Publish Release
