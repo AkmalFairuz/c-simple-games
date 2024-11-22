@@ -13,5 +13,3 @@ add_executable(c_simple_games
         src/csg_game.c
         src/csg_game.h
 )
-
-target_compile_options(c_simple_games PRIVATE -fpermissive-vla)
