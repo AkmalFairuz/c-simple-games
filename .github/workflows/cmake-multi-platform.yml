@@ -3,6 +3,8 @@ name: CMake on multiple platforms
 on:
   push:
     branches: [ "testing" ]
+    tags:
+      - "v*"
   pull_request:
     branches: [ "testing" ]
 
@@ -63,3 +65,11 @@ jobs:
         with:
           name: built-executable
           path: ${{ steps.strings.outputs.build-output-dir }}/c_simple_games.exe
+
+      - name: Publish Release
+        if: startsWith(github.ref, 'refs/tags/v') && success()
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ steps.strings.outputs.build-output-dir }}/c_simple_games.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
