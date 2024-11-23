@@ -15,7 +15,10 @@
 
 /* BEGIN Macros */
 #define ll long long int // i hate long long int
-#define clear() system("cls")
+#define clear() \
+    system("cls"); \
+    set_cursor(0, 0);
+
 #define fatal(format, ...) \
     printf(format, ##__VA_ARGS__); \
     printf("\n"); \

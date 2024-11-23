@@ -105,7 +105,8 @@ csg_game_result csg_type_racer_start(void) {
     const double timeTaken = (double)(endTime - start_time) / CLOCKS_PER_SEC;
     const double wpm = ((correct_chars / 5.0) / (timeTaken / 60.0));
     const double score = wpm * accuracy;
-    printf("\n\n\n\n");
+    clear();
+
     printf("\nTime taken: %.2f seconds\n", timeTaken);
     printf("Words per minute: %.2f\n", wpm);
     printf("Typing Accuracy: %.2f%%\n", accuracy);
