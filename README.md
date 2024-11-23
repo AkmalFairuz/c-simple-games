@@ -13,7 +13,9 @@ Executable files can be found in the [releases](https://github.com/AkmalFairuz/c
     - [ ] Don't print the text all at once to prevent print delay
     - [ ] Add timer
     - [ ] Multiple language support
-- [ ] Maze
+- [x] Maze
+    - [ ] Timer
+    - [ ] Customizable grid size
 - [ ] Math Quiz
 - [ ] Leaderboard
 - [x] Windows support
