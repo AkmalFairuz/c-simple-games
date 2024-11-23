@@ -18,4 +18,6 @@ add_executable(c_simple_games
         src/csg_prompt.h
         src/csg_maze.c
         src/csg_maze.h
+        src/csg_math_quiz.c
+        src/csg_math_quiz.h
 )

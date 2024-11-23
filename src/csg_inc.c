@@ -42,3 +42,7 @@ void generate_sentences(const int words_count, char generated_words[][50]) {
         strcpy(generated_words[i], selected_word);
     }
 }
+
+int get_random_int(const int min, const int max) {
+    return rand() % (max - min + 1) + min;
+}

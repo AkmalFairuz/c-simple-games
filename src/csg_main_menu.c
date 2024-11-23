@@ -1,3 +1,4 @@
+#include "csg_math_quiz.h"
 #include "csg_prompt.h"
 
 static void print_main_menu_options() {
@@ -47,8 +48,13 @@ void csg_main_menu_start(void) {
                     }
                     break;
                 case 2:
-                    printf("NOT IMPLEMENTED YET");
-                    PRESS_ENTER_TO_CONTINUE();
+                    while(true) {
+                        csg_math_quiz_start();
+                        clear();
+                        if(!ask_yes_no("Do you want to play math quiz again?")) {
+                            break;
+                        }
+                    }
                     break;
                 case 3:
                     printf("Created by: \n");

@@ -16,7 +16,7 @@ Executable files can be found in the [releases](https://github.com/AkmalFairuz/c
 - [x] Maze
     - [ ] Timer
     - [ ] Customizable grid size
-- [ ] Math Quiz
+- [x] Math Quiz
 - [ ] Leaderboard
 - [x] Windows support
 - [ ] MacOS support

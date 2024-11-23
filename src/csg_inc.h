@@ -11,6 +11,7 @@
 #include <conio.h>
 #include <windows.h>
 #include <stdint.h>
+#include <unistd.h>
 /* END Required Libraries */
 
 /* BEGIN Macros */
@@ -59,6 +60,7 @@
 void set_cursor(int x, int y);
 void generate_sentences(int words_count, char generated_words[][50]);
 FILE* load_file(const char *file_name, const char *mode);
+int get_random_int(int min, int max);
 /* END Functions */
 
 #endif
