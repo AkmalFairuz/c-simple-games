@@ -9,5 +9,6 @@
 #include "csg_game.h"
 #include "csg_type_racer.h"
 #include "csg_main_menu.h"
+#include "csg_maze.h"
 
 #endif

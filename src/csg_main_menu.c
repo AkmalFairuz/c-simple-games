@@ -33,14 +33,19 @@ void csg_main_menu_start(void) {
                     while(true) {
                         csg_type_racer_start();
                         clear();
-                        if(!ask_yes_no("Do you want to play again?")) {
+                        if(!ask_yes_no("Do you want to play type racer again?")) {
                             break;
                         }
                     }
                     break;
                 case 1:
-                    printf("NOT IMPLEMENTED YET");
-                    PRESS_ENTER_TO_CONTINUE();
+                    while(true) {
+                        csg_maze_start();
+                        clear();
+                        if(!ask_yes_no("Do you want to play maze again?")) {
+                            break;
+                        }
+                    }
                     break;
                 case 2:
                     printf("NOT IMPLEMENTED YET");
