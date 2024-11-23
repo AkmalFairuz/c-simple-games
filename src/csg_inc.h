@@ -19,6 +19,10 @@
     system("cls"); \
     set_cursor(0, 0);
 
+#define PRESS_ENTER_TO_CONTINUE() \
+    printf("Press ENTER to continue..."); \
+    while (getchar() != '\n');
+
 #define fatal(format, ...) \
     printf(format, ##__VA_ARGS__); \
     printf("\n"); \

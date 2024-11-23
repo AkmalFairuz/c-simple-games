@@ -107,11 +107,11 @@ csg_game_result csg_type_racer_start(void) {
     const double score = wpm * accuracy;
     clear();
 
-    printf("\nTime taken: %.2f seconds\n", timeTaken);
+    printf("Time taken: %.2f seconds\n", timeTaken);
     printf("Words per minute: %.2f\n", wpm);
     printf("Typing Accuracy: %.2f%%\n", accuracy);
-    printf("Press ENTER to continue...");
-    getchar();
+
+    PRESS_ENTER_TO_CONTINUE();
 
     return csg_game_result_create(score);
 }
