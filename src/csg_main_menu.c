@@ -1,16 +1,15 @@
-#include "csg_main_menu.h"
-
 #include "csg_prompt.h"
 
 static void print_main_menu_options() {
     clear();
 
-    printf("\n\n");
-    printf("     Type Racer\n");
-    printf("     Maze\n");
-    printf("     Math Quiz\n");
-    printf("     Credits\n");
-    printf("     Exit\n");
+    begin_print_option();
+    print_option("Type Racer");
+    print_option("Maze");
+    print_option("Math Quiz");
+    print_option("Credits");
+    print_option("Exit");
+    end_print_option();
 }
 
 void csg_main_menu_start(void) {

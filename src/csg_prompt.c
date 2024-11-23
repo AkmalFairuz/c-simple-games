@@ -35,10 +35,10 @@ bool ask_yes_no(const char *prompt) {
     clear();
 
     printf(prompt);
-    printf("\n\n");
-
-    printf("     Yes\n");
-    printf("     No\n");
+    begin_print_option();
+    print_option("Yes");
+    print_option("No");
+    end_print_option();
 
     const int total_option = 2;
     int selected = 0;
@@ -49,4 +49,15 @@ bool ask_yes_no(const char *prompt) {
             return selected == 0;
         }
     }
+}
+
+void print_option(const char *option) {
+    printf("     %s\n", option);
+}
+
+void begin_print_option() {
+    printf("\n\n");
+}
+
+void end_print_option() {
 }
