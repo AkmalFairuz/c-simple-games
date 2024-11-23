@@ -1,13 +1,13 @@
 #include "csg_type_racer.h"
 
-static void print_words(int count_word, char words[50][50], int cek_benar[][50], int current_word, int current_letter) {
+static void print_words(int count_word, char words[50][50], int type_state[][50], int current_word, int current_letter) {
     for (int i = 0; i < count_word; i++) {
         const int len = strlen(words[i]);
         for (int j = 0; j < len; j++) {
             if (i == current_word && j == current_letter) {
                 printf(ANSI_BLUE);
             }else {
-                switch(cek_benar[i][j]) {
+                switch(type_state[i][j]) {
                     case CORRECT_TYPED:
                         printf(ANSI_GREEN);
                         break;
@@ -35,8 +35,8 @@ csg_game_result csg_type_racer_start(void) {
 
     generate_sentences(count_word, words);
 
-    int cek_benar[count_word][50];
-    memset(cek_benar, NOT_TYPED, sizeof(cek_benar));
+    int type_state[count_word][50];
+    memset(type_state, NOT_TYPED, sizeof(type_state));
 
     printf("Type the following sentence as fast as you can:\n\n");
     for (int i = 0; i < count_word; i++) {
@@ -57,27 +57,27 @@ csg_game_result csg_type_racer_start(void) {
     bool ignore_space = false;
     while (i < count_word) {
         set_cursor(0, 0);
-        print_words(count_word, words, cek_benar, i, j);
+        print_words(count_word, words, type_state, i, j);
         set_cursor(0, 0);
         const char input = getch();
         set_cursor(0, 0);
 
-        if (input == 8){
+        if (input == KEY_BACKSPACE){
             if (j > 0) {
                 j--;
-                cek_benar[i][j] = NOT_TYPED;
+                type_state[i][j] = NOT_TYPED;
             } else if (i > 0) {
                 i--;
                 j = strlen(words[i]) - 1;
-                cek_benar[i][j] = NOT_TYPED;
+                type_state[i][j] = NOT_TYPED;
             }
         } else if (input == ' '){
             if(ignore_space) {
                 ignore_space = false;
             }else {
                 for(int k = 0; k < strlen(words[i]); k++) {
-                    if(cek_benar[i][k] == 0) {
-                        cek_benar[i][k] = WRONG_TYPED;
+                    if(type_state[i][k] == 0) {
+                        type_state[i][k] = WRONG_TYPED;
                     }
                 }
 
@@ -86,10 +86,10 @@ csg_game_result csg_type_racer_start(void) {
             }
         } else {
             if (input == words[i][j]){
-                cek_benar[i][j] = CORRECT_TYPED;
+                type_state[i][j] = CORRECT_TYPED;
                 correct_chars++;
             } else {
-                cek_benar[i][j] = WRONG_TYPED;
+                type_state[i][j] = WRONG_TYPED;
             }
             j++;
             if (j >= strlen(words[i])) {

@@ -20,7 +20,7 @@
     set_cursor(0, 0);
 
 #define PRESS_ENTER_TO_CONTINUE() \
-    printf("Press ENTER to continue..."); \
+    printf("\nPress ENTER to continue..."); \
     while (getchar() != '\n');
 
 #define fatal(format, ...) \
@@ -36,6 +36,15 @@
 #else
 #define debug(format, ...) ;;
 #endif
+
+#define KEY_ARROW_PREFIX 224
+#define KEY_ARROW_UP 72
+#define KEY_ARROW_DOWN 80
+#define KEY_ARROW_LEFT 75
+#define KEY_ARROW_RIGHT 77
+#define KEY_ESC 27
+#define KEY_ENTER 13
+#define KEY_BACKSPACE 8
 
 /* END Macros */
 

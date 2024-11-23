@@ -12,4 +12,8 @@ add_executable(c_simple_games
         src/csg_type_racer.h
         src/csg_game.c
         src/csg_game.h
+        src/csg_main_menu.c
+        src/csg_main_menu.h
+        src/csg_prompt.c
+        src/csg_prompt.h
 )

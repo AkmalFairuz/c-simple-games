@@ -4,6 +4,6 @@ int main(void) {
     srand(time(NULL));
     SetConsoleOutputCP(CP_UTF8);
 
-    csg_type_racer_start();
+    csg_main_menu_start();
     return 0;
 }
