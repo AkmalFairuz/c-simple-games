@@ -13,6 +13,9 @@ typedef struct {
     int map_grid[MAZE_GRID_HEIGHT][MAZE_GRID_WIDTH];
     int player_pos_x;
     int player_pos_y;
+    time_t start_time;
+    time_t finish_time;
+    bool win;
 } csg_maze_game;
 
 static void initialize_map(csg_maze_game *maze);

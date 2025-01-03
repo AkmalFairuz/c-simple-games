@@ -10,5 +10,7 @@
 #include "csg_type_racer.h"
 #include "csg_main_menu.h"
 #include "csg_maze.h"
+#include "csg_login.h"
+#include "csg_leaderboard.h"
 
 #endif

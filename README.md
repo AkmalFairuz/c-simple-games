@@ -17,7 +17,7 @@ Executable files can be found in the [releases](https://github.com/AkmalFairuz/c
     - [ ] Timer
     - [ ] Customizable grid size
 - [x] Math Quiz
-- [ ] Leaderboard
+- [x] Leaderboard
 - [x] Windows support
 - [ ] MacOS support
 - [ ] Linux support

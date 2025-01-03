@@ -60,6 +60,7 @@
 void set_cursor(int x, int y);
 void generate_sentences(int words_count, char generated_words[][50]);
 FILE* load_file(const char *file_name, const char *mode);
+void create_file_if_not_exists(const char *file_name);
 int get_random_int(int min, int max);
 /* END Functions */
 

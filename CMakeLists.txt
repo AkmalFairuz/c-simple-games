@@ -20,4 +20,8 @@ add_executable(c_simple_games
         src/csg_maze.h
         src/csg_math_quiz.c
         src/csg_math_quiz.h
+        src/csg_login.h
+        src/csg_login.c
+        src/csg_leaderboard.c
+        src/csg_leaderboard.h
 )

@@ -1,5 +1,6 @@
 #include "csg_type_racer.h"
 
+// [print_words] adalah fungsi yang mencetak kata-kata yang harus diketikkan oleh pemain. Fungsi ini akan menandai
 static void print_words(int count_word, char words[50][50], int type_state[][50], int current_word, int current_letter) {
     for (int i = 0; i < count_word; i++) {
         const int len = strlen(words[i]);
@@ -26,6 +27,7 @@ static void print_words(int count_word, char words[50][50], int type_state[][50]
     fflush(stdout);
 }
 
+// [csg_type_racer_start] adalah fungsi yang digunakan untuk memulai game type racer.
 csg_game_result csg_type_racer_start(void) {
     clear();
 
@@ -113,5 +115,5 @@ csg_game_result csg_type_racer_start(void) {
 
     PRESS_ENTER_TO_CONTINUE();
 
-    return csg_game_result_create(score);
+    return csg_game_result_create(GAME_TYPE_RACER, (int) score);
 }

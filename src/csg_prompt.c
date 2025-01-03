@@ -1,5 +1,8 @@
 #include "csg_prompt.h"
 
+// [menu_arrow_selector] adalah fungsi yang menampilkan menu dengan panah dan meminta input dari user. Parameter
+// [total_option] adalah jumlah opsi yang akan ditampilkan. Parameter [selected] adalah indeks opsi yang dipilih.
+// [selected] akan diubah oleh fungsi ini sesuai dengan input dari user.
 int menu_arrow_selector(const int total_option, int *selected) {
     for(int i = 0; i < total_option; i++) {
         set_cursor(1, i + 2);
@@ -31,6 +34,8 @@ int menu_arrow_selector(const int total_option, int *selected) {
     return key;
 }
 
+// [ask_yes_no] adalah fungsi yang menampilkan pertanyaan dengan opsi Yes dan No. Fungsi ini akan mengembalikan
+// true jika user memilih Yes dan false jika user memilih No.
 bool ask_yes_no(const char *prompt) {
     clear();
 
@@ -51,13 +56,16 @@ bool ask_yes_no(const char *prompt) {
     }
 }
 
+// [print_option] adalah fungsi yang mencetak opsi pada menu.
 void print_option(const char *option) {
     printf("     %s\n", option);
 }
 
+// [begin_print_option] adalah fungsi yang dipanggil sebelum mencetak opsi pada menu.
 void begin_print_option() {
     printf("\n\n");
 }
 
+// [end_print_option] adalah fungsi yang dipanggil setelah mencetak opsi pada menu.
 void end_print_option() {
 }
